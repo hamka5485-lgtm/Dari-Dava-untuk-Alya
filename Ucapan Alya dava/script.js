@@ -432,3 +432,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+function stopAllAudio() {
+  document.querySelectorAll("audio").forEach(audio => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    stopAllAudio();
+  }
+});
+
+window.addEventListener("pagehide", () => {
+  stopAllAudio();
+});
