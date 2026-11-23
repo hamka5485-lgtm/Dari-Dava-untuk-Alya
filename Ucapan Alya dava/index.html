@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little World for You ♡</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cursor Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Floating Background Elements -->
+  <div class="floating-bg-elements" id="bg-elements"></div>
+
+  <!-- 1. WELCOME SCREEN -->
+  <section id="welcome-screen" class="welcome-container">
+    <div class="welcome-card">
+      <div class="sticker-badge">Special Gift 🌸</div>
+      <h1 class="title-handwritten">Hey, You!</h1>
+      <p class="subtitle-text">Someone made a little world just for you.</p>
+      
+      <div class="welcome-illustration">
+        <div class="animated-heart-pulse">💖</div>
+      </div>
+
+      <button id="enter-btn" class="btn-primary-pulse">
+        Open Your Little World ♡
+      </button>
+    </div>
+  </section>
+
+  <!-- MAIN APP CONTAINER -->
+  <div id="main-app" class="hidden">
+
+    <audio id="bg-audio" src="./assets/audio/nuca-masa-ini-nanti-dan-masa-indah-lainnya-official-lyric-video-128-ytshorts.savetube.me.mp3" loop preload="auto"></audio>
+
+    <!-- MAIN HEADER -->
+    <header class="main-header">
+      <h1 class="brand-title">Welcome to My Little Universe</h1>
+      <p class="brand-subtitle">"A tiny place filled with little things that remind me of you."</p>
+    </header>
+
+    <!-- 2. MAIN HUB (SCRAPBOOK MENU CARDS) -->
+    <section class="scrapbook-grid">
+      
+      <div class="card-item" data-target="#section-message">
+        <div class="card-sticker">💌</div>
+        <h2>A Little Message</h2>
+        <p>A heartfelt letter written just for you.</p>
+      </div>
+
+      <div class="card-item" data-target="#section-memories">
+        <div class="card-sticker">📸</div>
+        <h2>Our Little Memories</h2>
+        <p>Polaroids of our precious moments together.</p>
+      </div>
+
+      <div class="card-item" data-target="#section-reasons">
+        <div class="card-sticker">✨</div>
+        <h2>Reasons Why You're Special</h2>
+        <p>Flip through tiny cards of reasons why I adore you.</p>
+      </div>
+
+      <div class="card-item" data-target="#section-surprise">
+        <div class="card-sticker">🎁</div>
+        <h2>A Tiny Surprise</h2>
+        <p>Play fun mini-games and unlock hidden sweet messages!</p>
+      </div>
+
+      <div class="card-item" data-target="#section-justforyou">
+        <div class="card-sticker">🌟</div>
+        <h2>Just For You</h2>
+        <p>Click whenever you need a boost of happiness.</p>
+      </div>
+
+      <div class="card-item card-ending" data-target="#section-ending">
+        <div class="card-sticker">🌷</div>
+        <h2>One Last Thing...</h2>
+        <p>A special final note before you go.</p>
+      </div>
+
+    </section>
+
+    <!-- SECTIONS CONTAINER -->
+    <main class="content-sections">
+
+      <!-- 3. A LITTLE MESSAGE -->
+      <section id="section-message" class="content-block">
+        <h2 class="section-heading">A Little Message For You 💌</h2>
+        <div class="envelope-wrapper">
+          <div class="envelope" id="envelope">
+            <div class="flap"></div>
+            <div class="pocket"></div>
+            <div class="letter" id="letter">
+              <div class="letter-content">
+                <p id="typed-text"></p>
+                <div class="letter-footer">- With all my heart ♡</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="click-hint">Klik amplop di atas untuk membuka surat 💌</p>
+      </section>
+
+      <!-- 4. OUR LITTLE MEMORIES -->
+      <section id="section-memories" class="content-block">
+        <h2 class="section-heading">Our Little Memories 📸</h2>
+        <p class="section-subtext">Foto-foto kenangan manis Alya sama dava!❤️</p>
+        <p id="photo-assets-status" class="photo-assets-status" role="status" aria-live="polite"></p>
+        
+        <div class="polaroid-gallery" id="polaroid-gallery">
+          <!-- 6 Polaroid Slots generated dynamically or static below -->
+          <!-- 1 -->
+          <div class="polaroid-card" style="--rotation: -2deg;">
+            <div class="polaroid-img-wrapper">
+              <img src="C:\Test Coding\Ucapan Alya dava\assets\foto-1.jpeg" alt="Memory" id="img-preview-0">
+              <label for="img-input-0" class="upload-overlay">Ganti Foto 📷</label>
+              <input type="file" id="img-input-0" accept="image/*" class="hidden-input img-uploader" data-index="0">
+            </div>
+            <input type="text" class="polaroid-caption" value="Our Favorite Day 🌸" placeholder="Tulis caption...">
+          </div>
+
+          <!-- 2 -->
+          <div class="polaroid-card" style="--rotation: 3deg;">
+            <div class="polaroid-img-wrapper">
+              <img src="C:\Test Coding\Ucapan Alya dava\assets\foto-2.jpeg" alt="Memory" id="img-preview-1">
+              <label for="img-input-1" class="upload-overlay">Ganti Foto 📷</label>
+              <input type="file" id="img-input-1" accept="image/*" class="hidden-input img-uploader" data-index="1">
+            </div>
+            <input type="text" class="polaroid-caption" value="Sweet Smiles ✨" placeholder="Tulis caption...">
+          </div>
+
+          <!-- 3 -->
+          <div class="polaroid-card" style="--rotation: -4deg;">
+            <div class="polaroid-img-wrapper">
+              <img src="C:\Test Coding\Ucapan Alya dava\assets\foto-3.jpeg" alt="Memory" id="img-preview-2">
+              <label for="img-input-2" class="upload-overlay">Ganti Foto 📷</label>
+              <input type="file" id="img-input-2" accept="image/*" class="hidden-input img-uploader" data-index="2">
+            </div>
+            <input type="text" class="polaroid-caption" value="Adventures Together 🚀" placeholder="Tulis caption...">
+          </div>
+
+          <!-- 4 -->
+          <div class="polaroid-card" style="--rotation: 2deg;">
+            <div class="polaroid-img-wrapper">
+              <img src="C:\Test Coding\Ucapan Alya dava\assets\foto-4.jpeg" alt="Memory" id="img-preview-3">
+              <label for="img-input-3" class="upload-overlay">Ganti Foto 📷</label>
+              <input type="file" id="img-input-3" accept="image/*" class="hidden-input img-uploader" data-index="3">
+            </div>
+            <input type="text" class="polaroid-caption" value="Cozy Moments ☕" placeholder="Tulis caption...">
+          </div>
+
+          <!-- 5 -->
+          <div class="polaroid-card" style="--rotation: -3deg;">
+            <div class="polaroid-img-wrapper">
+              <img src="C:\Test Coding\Ucapan Alya dava\assets\foto-5.jpeg" alt="Memory" id="img-preview-4">
+              <label for="img-input-4" class="upload-overlay">Ganti Foto 📷</label>
+              <input type="file" id="img-input-4" accept="image/*" class="hidden-input img-uploader" data-index="4">
+            </div>
+            <input type="text" class="polaroid-caption" value="Little Laughs 😂" placeholder="Tulis caption...">
+          </div>
+
+          <!-- 6 -->
+          <div class="polaroid-card" style="--rotation: 4deg;">
+            <div class="polaroid-img-wrapper">
+              <img src="C:\Test Coding\Ucapan Alya dava\assets\foto-6.jpeg" alt="Memory" id="img-preview-5">
+              <label for="img-input-5" class="upload-overlay">Ganti Foto 📷</label>
+              <input type="file" id="img-input-5" accept="image/*" class="hidden-input img-uploader" data-index="5">
+            </div>
+            <input type="text" class="polaroid-caption" value="Forever & Always 💕" placeholder="Tulis caption...">
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. REASONS WHY YOU'RE SPECIAL -->
+      <section id="section-reasons" class="content-block">
+        <h2 class="section-heading">Reasons Why You're Special ✨</h2>
+        <p class="section-subtext">Klik kartu di bawah ini untuk membalik dan membaca kebaikanmu!</p>
+
+        <div class="flip-cards-grid">
+          <!-- Card 1 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="card-icon">😊</span>
+                <h3>Your Smile</h3>
+              </div>
+              <div class="flip-card-back">
+                <p>Senyumanmu selalu berhasil mencerahkan hari yang paling redup sekalipun. Murni dan menghangatkan hati.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="card-icon">💭</span>
+                <h3>Your Little Habits</h3>
+              </div>
+              <div class="flip-card-back">
+                <p>Cara kamu tertawa saat antusias, ekspresi lucu saat berpikir, semuanya sangat menggemaskan!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="card-icon">🤍</span>
+                <h3>Your Kindness</h3>
+              </div>
+              <div class="flip-card-back">
+                <p>Hatimu yang tulus dan caramu peduli pada orang-orang di sekitarmu adalah hal terindah dari dirimu.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="card-icon">🗣️</span>
+                <h3>The Way You Talk</h3>
+              </div>
+              <div class="flip-card-back">
+                <p>Mendengarkan suaramu dan cerita-ceritamu selalu menjadi bagian terfavorit dalam hariku.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="card-icon">✨</span>
+                <h3>Your Existence</h3>
+              </div>
+              <div class="flip-card-back">
+                <p>Hanya dengan keberadaanmu saja, dunia ini terasa jauh lebih indah dan bermakna.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. A TINY SURPRISE (GAMES) -->
+      <section id="section-surprise" class="content-block">
+        <h2 class="section-heading">A Tiny Surprise 🎁</h2>
+        
+        <div class="games-container">
+          <!-- Game 1: Catch The Hearts -->
+          <div class="game-box">
+            <h3>Game 1: Catch The Hearts 💕</h3>
+            <p>Tangkap 10 hati yang muncul untuk membuka pesan rahasia!</p>
+            <div class="score-board">Score: <span id="game-score">0</span> / 10</div>
+            
+            <div id="heart-game-area" class="game-area">
+              <button id="start-game-btn" class="btn-secondary">Mulai Game 🎮</button>
+            </div>
+          </div>
+
+          <!-- Game 2: Open The Gift -->
+          <div class="game-box">
+            <h3>Game 2: Open The Gift 🎀</h3>
+            <p>Klik kotak hadiah di bawah untuk membuka kejutan manis!</p>
+            
+            <div class="gift-area">
+              <div class="gift-box" id="gift-box">
+                <div class="gift-lid">🎁</div>
+                <div class="gift-body"></div>
+              </div>
+              <div id="gift-message" class="hidden-gift-msg hidden">
+                <p>🌸 "Kamu adalah hadiah paling indah yang pernah hadir dalam hidupku. Terima kasih sudah menjadi dirimu!" 🎉</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. JUST FOR YOU -->
+      <section id="section-justforyou" class="content-block text-center">
+        <h2 class="section-heading">Just For You 🌟</h2>
+        <p class="section-subtext">Butuh sedikit suntikan kebahagiaan hari ini?</p>
+
+        <button id="happiness-btn" class="btn-primary-pulse">
+          Click if you need a little happiness ♡
+        </button>
+
+        <div id="message-display-box" class="happiness-box hidden">
+          <p id="random-quote-text">..."</p>
+        </div>
+      </section>
+
+      <!-- 8. FINAL SURPRISE -->
+      <section id="section-ending" class="content-block text-center ending-block">
+        <h2 class="section-heading">Before You Go... 🌙</h2>
+        <p class="ending-quote">
+          "If this little world made you smile, then it has done its job."
+        </p>
+
+        <button id="final-surprise-btn" class="btn-final">
+          One Last Surprise ♡
+        </button>
+      </section>
+
+    </main>
+
+    <footer class="main-footer">
+      <p>Made with endless love & care for someone special 💖</p>
+    </footer>
+  </div>
+
+  <!-- FINAL SURPRISE MODAL / OVERLAY -->
+  <div id="final-modal" class="modal-overlay hidden">
+    <div class="modal-content text-center">
+      <div class="modal-sparkles">✨🌸💖✨</div>
+      <h2>A Little Reminder</h2>
+      <p id="final-custom-text">
+        Tidak peduli seberapa sibuk atau beratnya harimu, selalu ingat bahwa kamu sangat berharga, disayangi, dan selalu punya tempat spesial di sini. Terima kasih sudah tersenyum hari ini!
+      </p>
+      <button id="close-modal-btn" class="btn-secondary">Tutup dengan Senyuman 😊</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
